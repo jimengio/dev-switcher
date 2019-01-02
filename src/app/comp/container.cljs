@@ -61,9 +61,9 @@
      (comp-offline)
      (div
       {:style (merge ui/global ui/fullscreen ui/column)}
-      (comp-navigation (:logged-in? store) (:count store))
+      (comp-navigation (:need-save? store))
       (case (:name router)
-        :home (comp-workspace (:enabled-apps store) (:need-save? store))
+        :home (comp-workspace (:enabled-apps store))
         :profile (comp-profile (:user store) (:data router))
         (<> router))
       (comp-status-color (:color store))

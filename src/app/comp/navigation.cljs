@@ -3,12 +3,12 @@
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
             [respo.comp.space :refer [=<]]
-            [respo.core :refer [defcomp <> action-> span div]]
+            [respo.core :refer [defcomp <> action-> button span div]]
             [app.config :as config]))
 
 (defcomp
  comp-navigation
- (logged-in? count-members)
+ (need-save?)
  (div
   {:style (merge
            ui/row-center
@@ -21,8 +21,12 @@
   (div
    {:on-click (action-> :router/change {:name :home}), :style {:cursor :pointer}}
    (<> (:title config/site) nil))
-  (div
-   {:style {:cursor "pointer"}, :on-click (action-> :router/change {:name :profile})}
-   (<> (if logged-in? "Me" "Guest"))
-   (=< 8 nil)
-   (<> count-members))))
+  (button
+   {:style (merge
+            ui/button
+            (if need-save?
+              {:background-color (hsl 200 80 50),
+               :color :white,
+               :border-color (hsl 200 80 50)})),
+    :inner-text "Excute",
+    :on-click (fn [e d! m!] (d! :effect/save nil))})))

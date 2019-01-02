@@ -54,7 +54,7 @@
 (def app-names
   {"material" "产品信息管理",
    "orderManagement" "销售管理",
-   "procurementManagement" "销售管理",
+   "procurementManagement" "采购管理",
    "productionManagement" "生产管理",
    "inventoryManagement" "库存管理",
    "IQC" "来料检测",
