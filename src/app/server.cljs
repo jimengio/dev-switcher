@@ -20,17 +20,19 @@
 (def storage-file (path/join (.. js/process -env -PWD) (:storage-file config/site)))
 
 (defonce initial-db
-  (merge-local-edn!
-   schema/database
-   storage-file
-   (fn [found?] (if found? (println "Found local EDN data") (println "Found no data")))))
+  (let [db (merge-local-edn!
+            schema/database
+            storage-file
+            (fn [found?]
+              (if found? (println "Found local EDN data") (println "Found no data"))))]
+    (-> db (assoc :saved-version (:enabled-apps db)) (assoc :sessions {}))))
 
 (defonce *reel (atom (merge reel-schema {:base initial-db, :db initial-db})))
 
 (defonce *reader-reel (atom @*reel))
 
 (defn persist-db! []
-  (let [file-content (pr-str (assoc (:db @*reel) :sessions {}))
+  (let [file-content (pr-str (-> (:db @*reel) (dissoc :sessions) (dissoc :saved-version)))
         storage-path storage-file
         backup-path (get-backup-path!)]
     (write-mildly! storage-path file-content)
@@ -42,7 +44,11 @@
     (try
      (cond
        (= op :effect/persist) (println "Disabled persist")
-       (= op :effect/save) (do (write-ts-file! (:enabled-apps (:db @*reel))) (persist-db!))
+       (= op :effect/save)
+         (do
+          (write-ts-file! (:enabled-apps (:db @*reel)))
+          (persist-db!)
+          (dispatch! :app/mark-saved nil sid))
        :else (reset! *reel (reel-reducer @*reel updater op op-data sid op-id op-time)))
      (catch js/Error error (js/console.error error)))))
 

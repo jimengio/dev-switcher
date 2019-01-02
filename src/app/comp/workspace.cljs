@@ -23,7 +23,7 @@
 
 (defcomp
  comp-workspace
- (enabled-apps)
+ (enabled-apps need-save?)
  (div
   {:style {:padding 16}}
   (div
@@ -31,13 +31,34 @@
    (<> "Workspace")
    (=< 16 nil)
    (button
-    {:style ui/button, :inner-text "Save", :on-click (fn [e d! m!] (d! :effect/save nil))}))
+    {:style (merge
+             ui/button
+             (if need-save?
+               {:background-color (hsl 200 80 50),
+                :color :white,
+                :border-color (hsl 200 80 50)})),
+     :inner-text "Save",
+     :on-click (fn [e d! m!] (d! :effect/save nil))}))
   (=< nil 24)
-  (div {} (<> "Enabled"))
+  (div
+   {}
+   (<> "Enabled")
+   (=< 16 nil)
+   (button
+    {:style ui/button,
+     :inner-text "Enable all",
+     :on-click (fn [e d! m!] (d! :app/turn-on-all))}))
   (list->
    {:style {:min-height 120}}
    (->> enabled-apps (map (fn [app-name] [app-name (comp-app app-name :app/turn-off)]))))
-  (div {} (<> "Disabled"))
+  (div
+   {}
+   (<> "Disabled")
+   (=< 16 nil)
+   (button
+    {:style ui/button,
+     :inner-text "Disable all",
+     :on-click (fn [e d! m!] (d! :app/turn-off-all))}))
   (list->
    {}
    (->> (difference (set schema/all-apps) enabled-apps)

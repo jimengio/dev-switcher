@@ -6,6 +6,9 @@
             [app.schema :as schema]
             [respo-message.updater :refer [update-messages]]))
 
+(defn app-mark-saved [db op-data sid op-id op-time]
+  (assoc db :saved-version (:enabled-apps db)))
+
 (defn app-turn-off [db op-data sid op-id op-time]
   (update db :enabled-apps (fn [apps] (disj apps op-data))))
 
@@ -22,6 +25,7 @@
             :session/connect session/connect
             :session/disconnect session/disconnect
             :session/remove-message session/remove-message
+            :session/add-message session/add-message
             :user/log-in user/log-in
             :user/sign-up user/sign-up
             :user/log-out user/log-out
@@ -30,5 +34,6 @@
             :app/turn-off app-turn-off
             :app/turn-off-all app-turn-off-all
             :app/turn-on-all app-turn-on-all
+            :app/mark-saved app-mark-saved
             (do (println "Unknown op:" op) identity))]
     (f db op-data sid op-id op-time)))
