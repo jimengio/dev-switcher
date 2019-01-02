@@ -2,7 +2,8 @@
 (ns app.twig.container
   (:require [recollect.twig :refer [deftwig]]
             [app.twig.user :refer [twig-user]]
-            ["randomcolor" :as color]))
+            ["randomcolor" :as color]
+            [app.schema :as schema]))
 
 (deftwig
  twig-members
@@ -19,15 +20,14 @@
        base-data {:logged-in? logged-in?, :session session, :reel-length (count records)}]
    (merge
     base-data
-    (if logged-in?
-      {:user (twig-user (get-in db [:users (:user-id session)])),
-       :router (assoc
-                router
-                :data
-                (case (:name router)
-                  :home (:pages db)
-                  :profile (twig-members (:sessions db) (:users db))
-                  {})),
-       :count (count (:sessions db)),
-       :color (color/randomColor)}
-      nil))))
+    {:user (twig-user (get-in db [:users (:user-id session)])),
+     :router (assoc
+              router
+              :data
+              (case (:name router)
+                :home (:pages db)
+                :profile (twig-members (:sessions db) (:users db))
+                {})),
+     :count (count (:sessions db)),
+     :color (color/randomColor),
+     :enabled-apps (:enabled-apps db)})))

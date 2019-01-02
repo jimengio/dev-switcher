@@ -12,11 +12,12 @@
             [app.twig.container :refer [twig-container]]
             [recollect.diff :refer [diff-twig]]
             [recollect.twig :refer [render-twig]]
-            [ws-edn.server :refer [wss-serve! wss-send! wss-each!]]))
+            [ws-edn.server :refer [wss-serve! wss-send! wss-each!]]
+            [app.file :refer [write-ts-file!]]))
 
 (defonce *client-caches (atom {}))
 
-(def storage-file (path/join js/__dirname (:storage-file config/site)))
+(def storage-file (path/join (.. js/process -env -PWD) (:storage-file config/site)))
 
 (defonce initial-db
   (merge-local-edn!
@@ -33,14 +34,15 @@
         storage-path storage-file
         backup-path (get-backup-path!)]
     (write-mildly! storage-path file-content)
-    (write-mildly! backup-path file-content)))
+    (comment write-mildly! backup-path file-content)))
 
 (defn dispatch! [op op-data sid]
   (let [op-id (id!), op-time (unix-time!)]
     (if config/dev? (println "Dispatch!" (str op) op-data sid))
     (try
      (cond
-       (= op :effect/persist) (persist-db!)
+       (= op :effect/persist) (println "Disabled persist")
+       (= op :effect/save) (do (write-ts-file! (:enabled-apps (:db @*reel))) (persist-db!))
        :else (reset! *reel (reel-reducer @*reel updater op op-data sid op-id op-time)))
      (catch js/Error error (js/console.error error)))))
 
@@ -58,7 +60,7 @@
            old-store (or (get @*client-caches sid) nil)
            new-store (render-twig (twig-container db session records) old-store)
            changes (diff-twig old-store new-store {:key :id})]
-       (println "Changes for" sid ":" changes (count records))
+       (when config/dev? (println "Changes for" sid ":" (count changes) (count records)))
        (if (not= changes [])
          (do
           (wss-send! sid {:kind :patch, :data changes})
@@ -89,8 +91,8 @@
   (println "Running mode:" (if config/dev? "dev" "release"))
   (run-server!)
   (render-loop!)
-  (js/process.on "SIGINT" on-exit!)
-  (repeat! 600 #(persist-db!))
+  (comment js/process.on "SIGINT" on-exit!)
+  (comment repeat! 600 #(persist-db!))
   (println "Server started."))
 
 (defn reload! []

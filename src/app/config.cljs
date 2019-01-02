@@ -29,7 +29,7 @@
    (get-cdn-info "dev-apps-switcher")
    {:port 8010,
     :title "DevApps",
-    :icon "http://cdn.tiye.me/logo/jimeng.png",
+    :icon "http://cdn.tiye.me/logo/jimeng-360x360.png",
     :upload-folder "tiye.me:repo/jimengio/dev-apps-switcher/",
     :server-folder nil,
     :theme "#eeeeff",
