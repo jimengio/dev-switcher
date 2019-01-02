@@ -26,12 +26,12 @@
 (def site
   (merge
    shared-info
-   (get-cdn-info "dev-apps-switcher")
+   (get-cdn-info "dev-switcher")
    {:port 8010,
-    :title "DevApps",
+    :title "Dev Switcher",
     :icon "http://cdn.tiye.me/logo/jimeng-360x360.png",
-    :upload-folder "tiye.me:repo/jimengio/dev-apps-switcher/",
+    :upload-folder "tiye.me:repo/jimengio/dev-switcher/",
     :server-folder nil,
     :theme "#eeeeff",
-    :storage-key "dev-apps-switcher",
+    :storage-key "dev-switcher",
     :storage-file "dev-apps.edn"}))

@@ -4143,7 +4143,7 @@
           :type :expr, :by "root", :at 1546409680524, :id "_lt2SW-ta"
           :data {
            "T" {:type :leaf, :by "root", :at 1546409684936, :text "get-cdn-info", :id "y6R4AdtnSd"}
-           "b" {:type :leaf, :by "root", :at 1546409698607, :text "\"dev-apps-switcher", :id "1ZyW6PJLJ"}
+           "b" {:type :leaf, :by "root", :at 1546415504022, :text "\"dev-switcher", :id "1ZyW6PJLJ"}
           }
          }
          "T" {
@@ -4161,7 +4161,7 @@
             :type :expr, :by "root", :at 1527867502467, :id "BkeUud1ye7"
             :data {
              "T" {:type :leaf, :by "root", :at 1527867504737, :text ":title", :id "BkeUud1ye7leaf"}
-             "j" {:type :leaf, :by "root", :at 1546410020389, :text "\"DevApps", :id "H1zKduykx7"}
+             "j" {:type :leaf, :by "root", :at 1546415516757, :text "\"Dev Switcher", :id "H1zKduykx7"}
             }
            }
            "u" {
@@ -4175,7 +4175,7 @@
             :type :expr, :by "root", :at 1527866712917, :id "SyebDS1kgQ"
             :data {
              "T" {:type :leaf, :by "root", :at 1528009970172, :text ":upload-folder", :id "SyebDS1kgQleaf"}
-             "j" {:type :leaf, :by "root", :at 1546410036752, :text "\"tiye.me:repo/jimengio/dev-apps-switcher/", :id "BymiPr1kgm"}
+             "j" {:type :leaf, :by "root", :at 1546415510095, :text "\"tiye.me:repo/jimengio/dev-switcher/", :id "BymiPr1kgm"}
             }
            }
            "yj" {
@@ -4196,7 +4196,7 @@
             :type :expr, :by "B1y7Rc-Zz", :at 1544855275779, :id "p3x2NvQE8A"
             :data {
              "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1544855275779, :text ":storage-key", :id "uZPBtv98eu"}
-             "j" {:type :leaf, :by "root", :at 1546410050120, :text "\"dev-apps-switcher", :id "ADQo0wpedu"}
+             "j" {:type :leaf, :by "root", :at 1546415506616, :text "\"dev-switcher", :id "ADQo0wpedu"}
             }
            }
            "yx" {
