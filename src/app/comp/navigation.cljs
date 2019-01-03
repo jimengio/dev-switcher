@@ -28,5 +28,5 @@
               {:background-color (hsl 200 80 50),
                :color :white,
                :border-color (hsl 200 80 50)})),
-    :inner-text "Excute",
+    :inner-text "Save",
     :on-click (fn [e d! m!] (d! :effect/save nil))})))

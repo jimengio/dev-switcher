@@ -6,11 +6,11 @@
 (defn write-ts-file! [enabled-apps]
   (println "files to write:" enabled-apps)
   (let [import-lines (->> enabled-apps
-                          (sort (fn [app] (.indexOf schema/all-apps app)))
+                          (sort-by (fn [app] (.indexOf schema/all-apps app)))
                           (map (fn [app] (get schema/app-imports app)))
                           (string/join "\n"))
         import-names (->> enabled-apps
-                          (sort (fn [app] (.indexOf schema/all-apps app)))
+                          (sort-by (fn [app] (.indexOf schema/all-apps app)))
                           (map (fn [app] (str app "Config,")))
                           (string/join "\n"))]
     (fs/writeFileSync

@@ -1,8 +1,11 @@
 {
-  "name": "cumulo-workflow",
+  "name": "@jimengio/dev-switcher",
   "version": "0.1.0",
   "description": "Cumulo Workflow",
   "main": "index.js",
+  "bin": {
+    "dev-switcher": "./dist/server.js"
+  },
   "scripts": {
     "watch": "shadow-cljs watch client server",
     "build-cdn": "shadow-cljs clj-run build.main/build-cdn",
@@ -12,6 +15,7 @@
     "up": "yarn build-cdn && yarn upload",
     "serve": "http-server dist -s",
     "ln": "cd target && rm -f entry && ln -s ../entry",
+    "pkg": "rm -rf dist/* && yarn shadow-cljs release server",
     "prod": "yarn install --production"
   },
   "repository": {

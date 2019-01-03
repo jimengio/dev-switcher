@@ -36,21 +36,21 @@
 
 (defn connect! []
   (ws-connect!
-   (<< "ws://~{js/location.hostname}:~(:port config/site)")
+   (<< "ws://localhost:~(:port config/site)")
    {:on-open (fn [] (simulate-login!)),
     :on-close (fn [event] (reset! *store nil) (js/console.error "Lost connection!")),
     :on-data (fn [data]
       (case (:kind data)
         :patch
           (let [changes (:data data)]
-            (js/console.log "Changes" (clj->js changes))
+            (when config/dev? (js/console.log "Changes" (clj->js changes)))
             (reset! *store (patch-twig @*store changes)))
         (println "unknown kind:" data)))}))
 
 (def mount-target (.querySelector js/document ".app"))
 
 (defn on-keydown [event]
-  (js/console.log (.-key event))
+  (comment js/console.log (.-key event))
   (if (and (.-metaKey event) (= "s" (.-key event)))
     (do (.preventDefault event) (dispatch! :effect/save nil))))
 

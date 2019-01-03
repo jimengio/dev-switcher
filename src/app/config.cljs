@@ -17,7 +17,7 @@
       false)))
 
 (defn get-cdn-info [cdn-key]
-  {:cdn-url (<< "http://cdn.tiye.me/~{cdn-key}/"), :cdn-folder "tiye.me:cdn/~{cdn-key}"})
+  {:cdn-url (<< "http://cdn.tiye.me/~{cdn-key}/"), :cdn-folder (<< "tiye.me:cdn/~{cdn-key}")})
 
 (def shared-info
   {:release-ui "http://cdn.tiye.me/favored-fonts/main.css",
