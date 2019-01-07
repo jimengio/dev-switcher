@@ -27,7 +27,7 @@
   (merge
    shared-info
    (get-cdn-info "dev-switcher")
-   {:port 8010,
+   {:port 8011,
     :title "Dev Switcher",
     :icon "http://cdn.tiye.me/logo/jimeng-360x360.png",
     :upload-folder "tiye.me:repo/jimengio/dev-switcher/",

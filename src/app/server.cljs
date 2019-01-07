@@ -95,6 +95,7 @@
 
 (defn main! []
   (println "Running mode:" (if config/dev? "dev" "release"))
+  (set! (.-title js/process) js/__filename)
   (run-server!)
   (render-loop!)
   (comment js/process.on "SIGINT" on-exit!)
