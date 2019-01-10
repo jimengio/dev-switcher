@@ -6,6 +6,8 @@
             [cumulo-reel.core :refer [reel-reducer refresh-reel reel-schema]]
             ["fs" :as fs]
             ["path" :as path]
+            ["latest-version" :as latest-version]
+            ["chalk" :as chalk]
             [app.config :as config]
             [cumulo-util.file :refer [write-mildly! get-backup-path! merge-local-edn!]]
             [cumulo-util.core :refer [id! repeat! unix-time! delay!]]
@@ -13,7 +15,8 @@
             [recollect.diff :refer [diff-twig]]
             [recollect.twig :refer [render-twig]]
             [ws-edn.server :refer [wss-serve! wss-send! wss-each!]]
-            [app.file :refer [write-ts-file!]]))
+            [app.file :refer [write-ts-file!]])
+  (:require-macros [clojure.core.strint :refer [<<]]))
 
 (defonce *client-caches (atom {}))
 
@@ -30,6 +33,20 @@
 (defonce *reel (atom (merge reel-schema {:base initial-db, :db initial-db})))
 
 (defonce *reader-reel (atom @*reel))
+
+(defn check-version! []
+  (let [pkg (.parse js/JSON (fs/readFileSync (path/join js/__dirname "../package.json")))
+        version (.-version pkg)]
+    (-> (latest-version (.-name pkg))
+        (.then
+         (fn [npm-version]
+           (if (= npm-version version)
+             (println "Running latest version" version)
+             (println
+              (.yellow
+               chalk
+               (<<
+                "New version ~{npm-version} available, current one is ~{version} . Please upgrade!\n\nyarn global add @jimengio/dev-switcher\n")))))))))
 
 (defn persist-db! []
   (let [file-content (pr-str (-> (:db @*reel) (dissoc :sessions) (dissoc :saved-version)))
@@ -100,7 +117,8 @@
   (render-loop!)
   (comment js/process.on "SIGINT" on-exit!)
   (comment repeat! 600 #(persist-db!))
-  (println "Server started."))
+  (println "Server started. Open editor on" (.blue chalk "http://fe.jimu.io/dev-switcher/"))
+  (check-version!))
 
 (defn reload! []
   (println "Code updated.")
