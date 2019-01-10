@@ -16,4 +16,4 @@
     (fs/writeFileSync
      "dev-apps.ts"
      (<<
-      "~{import-lines}\n\nconst apps = [\n~{import-names}\n];\n\nexport function getAppsConfig() {\n  return apps;\n}\n"))))
+      "~{import-lines}\n\nconst apps = [\n~{import-names}\n];\n\nexport function getAppsConfig() {\n  return apps;\n}\n\nexport function getAppRouteConfigs() {\n  return apps.map((app) => app.module.routeConfig[0]);\n}\n"))))

@@ -28,7 +28,7 @@
  comp-workspace
  (enabled-apps)
  (div
-  {:style (merge ui/row {:padding 16})}
+  {:style (merge ui/flex ui/row {:padding 16, :overflow :auto})}
   (div
    {:style ui/flex}
    (div

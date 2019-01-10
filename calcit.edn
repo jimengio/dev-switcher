@@ -3846,6 +3846,7 @@
               :type :expr, :by "root", :at 1546429156570, :id "xKvTleLCg"
               :data {
                "D" {:type :leaf, :by "root", :at 1546429157431, :text "merge", :id "GUaTH1HpKr"}
+               "H" {:type :leaf, :by "root", :at 1547100729478, :text "ui/flex", :id "1wicMV36x6"}
                "L" {:type :leaf, :by "root", :at 1546429158646, :text "ui/row", :id "x1V7UPlvVd"}
                "T" {
                 :type :expr, :by "root", :at 1546411569852, :id "5rHyfBdRY4"
@@ -3856,6 +3857,13 @@
                   :data {
                    "T" {:type :leaf, :by "root", :at 1546411572974, :text ":padding", :id "SMUHRjX0Ux"}
                    "j" {:type :leaf, :by "root", :at 1546411575061, :text "16", :id "7NMFLJMZDS"}
+                  }
+                 }
+                 "r" {
+                  :type :expr, :by "root", :at 1547100713700, :id "N89Px6uLi"
+                  :data {
+                   "T" {:type :leaf, :by "root", :at 1547100716903, :text ":overflow", :id "N89Px6uLileaf"}
+                   "j" {:type :leaf, :by "root", :at 1547100717642, :text ":auto", :id "dIIc7pus4s"}
                   }
                  }
                 }
@@ -4853,7 +4861,7 @@
             :type :expr, :by "root", :at 1546414216408, :id "4jB7Ril4H8"
             :data {
              "T" {:type :leaf, :by "root", :at 1546414218154, :text "<<", :id "4jB7Ril4H8leaf"}
-             "j" {:type :leaf, :by "root", :at 1546414500181, :text "\"~{import-lines}\n\nconst apps = [\n~{import-names}\n];\n\nexport function getAppsConfig() {\n  return apps;\n}\n", :id "FVcTRWDQ7"}
+             "j" {:type :leaf, :by "root", :at 1547101010419, :text "\"~{import-lines}\n\nconst apps = [\n~{import-names}\n];\n\nexport function getAppsConfig() {\n  return apps;\n}\n\nexport function getAppRouteConfigs() {\n  return apps.map((app) => app.module.routeConfig[0]);\n}\n", :id "FVcTRWDQ7"}
             }
            }
           }
