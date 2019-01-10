@@ -2,6 +2,8 @@
 Dev Apps Switcher
 ------
 
+![](https://img.shields.io/npm/v/@jimengio/dev-switcher.svg)
+
 > a devtool.
 
 ### Workflow
