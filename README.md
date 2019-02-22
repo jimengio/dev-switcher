@@ -27,7 +27,7 @@ module.exports = {
 ```bash
 yarn global add @jimengio/dev-switcher
 
-# back to project root directory
+# at the directory where `dev-apps.ts` is located
 dev-switcher
 ```
 
