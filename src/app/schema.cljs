@@ -10,6 +10,7 @@
    "IQC"
    "IPQC"
    "OQC"
+   "QC"
    "device"
    "toolingManagement"
    "gaugeManagement"
@@ -37,6 +38,7 @@
    "inventoryManagement" "import inventoryManagementConfig from \"./inventoryManagement/config\";",
    "IPQC" "import IPQCConfig from \"./IPQC/config\";",
    "IQC" "import IQCConfig from \"./IQC/config\";",
+   "QC" "import QCConfig from \"./QC/config\";",
    "issueTracking" "import issueTrackingConfig from \"./issueTracking/config\";",
    "material" "import materialConfig from \"./material/config\";",
    "measurementDataAnalysis" "import measurementDataAnalysisConfig from \"./measurementDataAnalysis/config\";",
@@ -74,7 +76,8 @@
    "causeAnalysis" "问题原因分析",
    "analysis" "数据分析",
    "report" "智能报告",
-   "digitalFactory" "配置中心"})
+   "digitalFactory" "配置中心",
+   "QC" "质量管理"})
 
 (def router {:name nil, :title nil, :data {}, :router nil})
 
