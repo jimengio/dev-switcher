@@ -25,7 +25,8 @@
    "causeAnalysis"
    "analysis"
    "report"
-   "digitalFactory"])
+   "digitalFactory"
+   "IPC"])
 
 (def app-imports
   {"analysis" "import analysisConfig from \"./analysis/config\";",
@@ -51,7 +52,8 @@
    "productionManagement" "import productionManagementConfig from \"./productionManagement/config\";",
    "productTracking" "import productTrackingConfig from \"./productTracking/config\";",
    "report" "import reportConfig from \"./report/config\";",
-   "toolingManagement" "import toolingManagementConfig from \"./toolingManagement/config\";"})
+   "toolingManagement" "import toolingManagementConfig from \"./toolingManagement/config\";",
+   "IPC" "import IPCConfig from \"./IPC/config\";"})
 
 (def app-names
   {"material" "产品信息管理",
@@ -77,7 +79,8 @@
    "analysis" "数据分析",
    "report" "智能报告",
    "digitalFactory" "配置中心",
-   "QC" "质量管理"})
+   "QC" "质量管理",
+   "IPC" "工控机(IPC)"})
 
 (def router {:name nil, :title nil, :data {}, :router nil})
 

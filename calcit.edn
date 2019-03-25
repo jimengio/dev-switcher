@@ -5420,6 +5420,7 @@
          "yyyv" {:type :leaf, :by "root", :at 1546410766685, :text "\"analysis", :id "-RjgOXDxSZd"}
          "yyyx" {:type :leaf, :by "root", :at 1546410766685, :text "\"report", :id "yaanaqucUnk"}
          "yyyy" {:type :leaf, :by "root", :at 1546410766685, :text "\"digitalFactory", :id "C8Hr3pV8Ex0"}
+         "yyyyT" {:type :leaf, :by "B1y7Rc-Zz", :at 1553500791697, :text "\"IPC", :id "2UAdFfTD6"}
         }
        }
       }
@@ -5601,6 +5602,13 @@
            "j" {:type :leaf, :by "root", :at 1546413506191, :text "\"import toolingManagementConfig from \"./toolingManagement/config\";", :id "m9yyoV98uhE"}
           }
          }
+         "yyyyT" {
+          :type :expr, :by "root", :at 1546413506191, :id "X5NKvg7mS"
+          :data {
+           "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1553500805222, :text "\"IPC", :id "VKt81bU30tt"}
+           "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1553501171996, :text "\"import IPCConfig from \"./IPC/config\";", :id "m9yyoV98uhE"}
+          }
+         }
         }
        }
       }
@@ -5780,6 +5788,13 @@
           :data {
            "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1553248163062, :text "\"QC", :id "ZEpoS-A0Jleaf"}
            "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1553248133309, :text "\"质量管理", :id "NXc0_psMwb"}
+          }
+         }
+         "yyyyj" {
+          :type :expr, :by "B1y7Rc-Zz", :at 1553248102790, :id "9K71m3yUj"
+          :data {
+           "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1553500829643, :text "\"IPC", :id "ZEpoS-A0Jleaf"}
+           "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1553501192634, :text "\"工控机(IPC)", :id "NXc0_psMwb"}
           }
          }
         }
