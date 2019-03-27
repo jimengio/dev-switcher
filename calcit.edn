@@ -5421,6 +5421,7 @@
          "yyyx" {:type :leaf, :by "root", :at 1546410766685, :text "\"report", :id "yaanaqucUnk"}
          "yyyy" {:type :leaf, :by "root", :at 1546410766685, :text "\"digitalFactory", :id "C8Hr3pV8Ex0"}
          "yyyyT" {:type :leaf, :by "B1y7Rc-Zz", :at 1553500791697, :text "\"IPC", :id "2UAdFfTD6"}
+         "yyyyj" {:type :leaf, :by "B1y7Rc-Zz", :at 1553658294183, :text "\"serialNumberManagement", :id "G1L-SCA_7"}
         }
        }
       }
@@ -5609,6 +5610,13 @@
            "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1553501171996, :text "\"import IPCConfig from \"./IPC/config\";", :id "m9yyoV98uhE"}
           }
          }
+         "yyyyj" {
+          :type :expr, :by "B1y7Rc-Zz", :at 1553658318452, :id "wtakIYzHtp"
+          :data {
+           "D" {:type :leaf, :by "B1y7Rc-Zz", :at 1553658328959, :text "\"serialNumberManagement", :id "QgW3YVM41"}
+           "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1553658320769, :text "\"import serialNumberManagementConfig from \"./serialNumberManagement/config\";", :id "wtakIYzHtpleaf"}
+          }
+         }
         }
        }
       }
@@ -5795,6 +5803,13 @@
           :data {
            "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1553500829643, :text "\"IPC", :id "ZEpoS-A0Jleaf"}
            "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1553501192634, :text "\"工控机(IPC)", :id "NXc0_psMwb"}
+          }
+         }
+         "yyyyr" {
+          :type :expr, :by "B1y7Rc-Zz", :at 1553658302279, :id "Xtg2mgI8tZ"
+          :data {
+           "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1553658303147, :text "\"serialNumberManagement", :id "Xtg2mgI8tZleaf"}
+           "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1553658307789, :text "\"序列号管理", :id "Eva_THw8I"}
           }
          }
         }

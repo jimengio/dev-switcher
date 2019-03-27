@@ -26,7 +26,8 @@
    "analysis"
    "report"
    "digitalFactory"
-   "IPC"])
+   "IPC"
+   "serialNumberManagement"])
 
 (def app-imports
   {"analysis" "import analysisConfig from \"./analysis/config\";",
@@ -53,7 +54,8 @@
    "productTracking" "import productTrackingConfig from \"./productTracking/config\";",
    "report" "import reportConfig from \"./report/config\";",
    "toolingManagement" "import toolingManagementConfig from \"./toolingManagement/config\";",
-   "IPC" "import IPCConfig from \"./IPC/config\";"})
+   "IPC" "import IPCConfig from \"./IPC/config\";",
+   "serialNumberManagement" "import serialNumberManagementConfig from \"./serialNumberManagement/config\";"})
 
 (def app-names
   {"material" "产品信息管理",
@@ -80,7 +82,8 @@
    "report" "智能报告",
    "digitalFactory" "配置中心",
    "QC" "质量管理",
-   "IPC" "工控机(IPC)"})
+   "IPC" "工控机(IPC)",
+   "serialNumberManagement" "序列号管理"})
 
 (def router {:name nil, :title nil, :data {}, :router nil})
 
