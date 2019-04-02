@@ -114,12 +114,20 @@
 (defn main! []
   (println "Running mode:" (if config/dev? "dev" "release"))
   (set! (.-title js/process) js/__filename)
-  (run-server!)
-  (render-loop!)
-  (js/process.on "SIGINT" on-exit!)
-  (comment repeat! 600 #(persist-db!))
-  (println "Server started. Open editor on" (.blue chalk "http://fe.jimu.io/dev-switcher/"))
-  (check-version!))
+  (if (= js/process.env.op "compile")
+    (do
+     (write-ts-file! (:enabled-apps (:db @*reel)) (:all-apps (:db @*reel)))
+     (persist-db!)
+     (println (.yellow chalk "Wrote to dev-apps.ts")))
+    (do
+     (run-server!)
+     (render-loop!)
+     (js/process.on "SIGINT" on-exit!)
+     (comment repeat! 600 #(persist-db!))
+     (println
+      "Server started. Open editor on"
+      (.blue chalk "http://fe.jimu.io/dev-switcher/"))
+     (check-version!))))
 
 (defn reload! []
   (println "Code updated.")
