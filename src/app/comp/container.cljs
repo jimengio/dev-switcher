@@ -13,7 +13,8 @@
             [app.config :refer [dev?]]
             [app.schema :as schema]
             [app.config :as config]
-            [app.comp.workspace :refer [comp-workspace]]))
+            [app.comp.workspace :refer [comp-workspace]]
+            [respo-md.comp.md :refer [comp-md]]))
 
 (defcomp
  comp-offline
@@ -31,9 +32,12 @@
             :height 128,
             :background-size :contain}})
   (div
-   {:style {:cursor :pointer, :line-height "32px"},
-    :on-click (action-> :effect/connect nil)}
-   (<> "No connection..." {:font-family ui/font-fancy, :font-size 24}))))
+   {:style (merge ui/center {:cursor :pointer, :line-height "32px"})}
+   (span
+    {:on-click (action-> :effect/connect nil)}
+    (<> "No connection..." {:font-family ui/font-fancy, :font-size 24}))
+   (comp-md
+    "This is a DevTool. [Find out more on GitHub.](https://github.com/jimengio/dev-switcher)"))))
 
 (defcomp
  comp-status-color
