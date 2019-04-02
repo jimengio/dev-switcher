@@ -11,7 +11,7 @@
 
 (defcomp
  comp-app
- (app-name op)
+ (app-name title op)
  (div
   {:style {:display :inline-block,
            :width 200,
@@ -21,44 +21,50 @@
            :margin 8,
            :cursor :pointer},
    :on-click (fn [e d! m!] (d! op app-name))}
-  (div {} (<> (get schema/app-names app-name app-name)))
+  (div {} (<> title))
   (div {:style {:color (hsl 0 0 70), :font-family ui/font-fancy}} (<> app-name))))
 
 (defcomp
  comp-workspace
- (enabled-apps)
- (div
-  {:style (merge ui/flex ui/row {:padding 16, :overflow :auto})}
-  (div
-   {:style ui/flex}
+ (enabled-apps all-apps)
+ (let [apps-order (map :id all-apps)
+       titles-map (->> all-apps (map (fn [x] [(:id x) (:name x)])) (into {}))]
    (div
-    {}
-    (<> "Enabled")
-    (=< 16 nil)
-    (button
-     {:style ui/button,
-      :inner-text "Enable all",
-      :on-click (fn [e d! m!] (d! :app/turn-on-all))}))
-   (=< nil 16)
-   (list->
-    {:style {}}
-    (->> enabled-apps
-         (sort-by (fn [app-name] (.indexOf schema/all-apps app-name)))
-         (map (fn [app-name] [app-name (comp-app app-name :app/turn-off)])))))
-  (=< 24 nil)
-  (div
-   {:style ui/flex}
-   (div
-    {}
-    (<> "Disabled")
-    (=< 16 nil)
-    (button
-     {:style ui/button,
-      :inner-text "Disable all",
-      :on-click (fn [e d! m!] (d! :app/turn-off-all))}))
-   (=< nil 16)
-   (list->
-    {}
-    (->> (difference (set schema/all-apps) enabled-apps)
-         (sort-by (fn [app-name] (.indexOf schema/all-apps app-name)))
-         (map (fn [app-name] [app-name (comp-app app-name :app/turn-on)])))))))
+    {:style (merge ui/flex ui/row {:padding 16, :overflow :auto})}
+    (div
+     {:style ui/flex}
+     (div
+      {}
+      (<> "Enabled")
+      (=< 16 nil)
+      (button
+       {:style ui/button,
+        :inner-text "Enable all",
+        :on-click (fn [e d! m!] (d! :app/turn-on-all))}))
+     (=< nil 16)
+     (list->
+      {:style {}}
+      (->> enabled-apps
+           (sort-by (fn [app-name] (.indexOf apps-order app-name)))
+           (map
+            (fn [app-name]
+              [app-name (comp-app app-name (get titles-map app-name) :app/turn-off)])))))
+    (=< 24 nil)
+    (div
+     {:style ui/flex}
+     (div
+      {}
+      (<> "Disabled")
+      (=< 16 nil)
+      (button
+       {:style ui/button,
+        :inner-text "Disable all",
+        :on-click (fn [e d! m!] (d! :app/turn-off-all))}))
+     (=< nil 16)
+     (list->
+      {}
+      (->> (difference (set apps-order) enabled-apps)
+           (sort-by (fn [app-name] (.indexOf apps-order app-name)))
+           (map
+            (fn [app-name]
+              [app-name (comp-app app-name (get titles-map app-name) :app/turn-on)]))))))))

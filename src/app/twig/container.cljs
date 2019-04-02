@@ -31,4 +31,5 @@
      :count (count (:sessions db)),
      :color (color/randomColor),
      :enabled-apps (:enabled-apps db),
+     :all-apps (:all-apps db),
      :need-save? (not= (:enabled-apps db) (:saved-version db))})))

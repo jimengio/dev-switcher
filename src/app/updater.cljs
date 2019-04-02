@@ -18,7 +18,7 @@
   (update db :enabled-apps (fn [apps] (conj apps op-data))))
 
 (defn app-turn-on-all [db op-data sid op-id op-time]
-  (assoc db :enabled-apps (set schema/all-apps)))
+  (assoc db :enabled-apps (set (->> db :all-apps (map :id)))))
 
 (defn updater [db op op-data sid op-id op-time]
   (let [f (case op

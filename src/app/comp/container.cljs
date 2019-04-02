@@ -67,7 +67,7 @@
       {:style (merge ui/global ui/fullscreen ui/column)}
       (comp-navigation (:need-save? store))
       (case (:name router)
-        :home (comp-workspace (:enabled-apps store))
+        :home (comp-workspace (:enabled-apps store) (:all-apps store))
         :profile (comp-profile (:user store) (:data router))
         (<> router))
       (comp-status-color (:color store))

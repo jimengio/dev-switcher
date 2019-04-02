@@ -15,7 +15,8 @@
             [recollect.diff :refer [diff-twig]]
             [recollect.twig :refer [render-twig]]
             [ws-edn.server :refer [wss-serve! wss-send! wss-each!]]
-            [app.file :refer [write-ts-file!]])
+            [app.file :refer [write-ts-file!]]
+            [favored-edn.core :refer [write-edn]])
   (:require-macros [clojure.core.strint :refer [<<]]))
 
 (defonce *client-caches (atom {}))
@@ -49,7 +50,7 @@
                 "New version ~{npm-version} available, current one is ~{version} . Please upgrade!\n\nyarn global add @jimengio/dev-switcher\n")))))))))
 
 (defn persist-db! []
-  (let [file-content (pr-str (-> (:db @*reel) (dissoc :sessions) (dissoc :saved-version)))
+  (let [file-content (write-edn (-> (:db @*reel) (dissoc :sessions) (dissoc :saved-version)))
         storage-path storage-file
         backup-path (get-backup-path!)]
     (write-mildly! storage-path file-content)
@@ -63,7 +64,7 @@
        (= op :effect/persist) (println "Disabled persist")
        (= op :effect/save)
          (do
-          (write-ts-file! (:enabled-apps (:db @*reel)))
+          (write-ts-file! (:enabled-apps (:db @*reel)) (:all-apps (:db @*reel)))
           (persist-db!)
           (dispatch! :app/mark-saved nil sid))
        :else (reset! *reel (reel-reducer @*reel updater op op-data sid op-id op-time)))
@@ -115,7 +116,7 @@
   (set! (.-title js/process) js/__filename)
   (run-server!)
   (render-loop!)
-  (comment js/process.on "SIGINT" on-exit!)
+  (js/process.on "SIGINT" on-exit!)
   (comment repeat! 600 #(persist-db!))
   (println "Server started. Open editor on" (.blue chalk "http://fe.jimu.io/dev-switcher/"))
   (check-version!))

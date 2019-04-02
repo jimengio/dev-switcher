@@ -3,14 +3,16 @@
   (:require [clojure.string :as string] [app.schema :as schema] ["fs" :as fs])
   (:require-macros [clojure.core.strint :refer [<<]]))
 
-(defn write-ts-file! [enabled-apps]
+(defn write-ts-file! [enabled-apps all-apps]
   (println "files to write:" enabled-apps)
-  (let [import-lines (->> enabled-apps
-                          (sort-by (fn [app] (.indexOf schema/all-apps app)))
-                          (map (fn [app] (get schema/app-imports app)))
+  (let [apps-in-order (map :id all-apps)
+        imports-map (->> all-apps (map (fn [x] [(:id x) (:import x)])) (into {}))
+        import-lines (->> enabled-apps
+                          (sort-by (fn [app] (.indexOf apps-in-order app)))
+                          (map (fn [app] (get imports-map app)))
                           (string/join "\n"))
         import-names (->> enabled-apps
-                          (sort-by (fn [app] (.indexOf schema/all-apps app)))
+                          (sort-by (fn [app] (.indexOf apps-in-order app)))
                           (map (fn [app] (str app "Config,")))
                           (string/join "\n"))]
     (fs/writeFileSync
