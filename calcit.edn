@@ -4792,6 +4792,13 @@
              "j" {:type :leaf, :id "rJF9g8-gCHZ", :text "8011", :by "root", :at 1546832588840}
             }
            }
+           "s" {
+            :type :expr, :by "B1y7Rc-Zz", :at 1555926456232, :id "PvApp4NjEY"
+            :data {
+             "T" {:type :leaf, :by "B1y7Rc-Zz", :at 1555926456232, :text ":ws-host", :id "3maO4Ma1U3"}
+             "j" {:type :leaf, :by "B1y7Rc-Zz", :at 1555926456232, :text "\"localhost", :id "BrZREdYXuC"}
+            }
+           }
            "t" {
             :type :expr, :by "root", :at 1527867502467, :id "BkeUud1ye7"
             :data {
