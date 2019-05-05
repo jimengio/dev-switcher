@@ -14,15 +14,17 @@
  (app-name title op)
  (div
   {:style {:display :inline-block,
-           :width 200,
+           :width 160,
            :border (<< "1px solid ~(hsl 200 80 86)"),
            :background-color (hsl 0 0 97),
-           :padding "8px 16px",
-           :margin 8,
+           :padding "4px 8px",
+           :margin 4,
            :cursor :pointer},
    :on-click (fn [e d! m!] (d! op app-name))}
   (div {} (<> title))
-  (div {:style {:color (hsl 0 0 70), :font-family ui/font-fancy}} (<> app-name))))
+  (div
+   {:style {:color (hsl 0 0 70), :font-family ui/font-fancy, :font-size 12}}
+   (<> app-name))))
 
 (defcomp
  comp-workspace
@@ -30,9 +32,9 @@
  (let [apps-order (map :id all-apps)
        titles-map (->> all-apps (map (fn [x] [(:id x) (:name x)])) (into {}))]
    (div
-    {:style (merge ui/flex ui/row {:padding 16, :overflow :auto})}
+    {:style (merge ui/flex ui/row {:padding 8, :overflow :auto})}
     (div
-     {:style ui/flex}
+     {:style (merge ui/flex {:overflow :auto})}
      (div
       {}
       (<> "Enabled")
@@ -51,9 +53,9 @@
               [app-name (comp-app app-name (get titles-map app-name) :app/turn-off)])))))
     (=< 24 nil)
     (div
-     {:style ui/flex}
+     {:style (merge {:overflow :auto, :flex 2})}
      (div
-      {}
+      {:style {:overflow :auto}}
       (<> "Disabled")
       (=< 16 nil)
       (button
@@ -62,7 +64,7 @@
         :on-click (fn [e d! m!] (d! :app/turn-off-all))}))
      (=< nil 16)
      (list->
-      {}
+      {:style {:overflow :auto}}
       (->> (difference (set apps-order) enabled-apps)
            (sort-by (fn [app-name] (.indexOf apps-order app-name)))
            (map

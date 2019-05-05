@@ -14,7 +14,7 @@
            ui/row-center
            {:height 48,
             :justify-content :space-between,
-            :padding "0 16px",
+            :padding "0 8px",
             :font-size 16,
             :border-bottom (str "1px solid " (hsl 0 0 0 0.1)),
             :font-family ui/font-fancy})}
