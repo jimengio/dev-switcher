@@ -3,13 +3,13 @@
   "name": "Dev Switcher",
   "icons": [
     {
-      "src": "http://cdn.tiye.me/logo/jimeng-360x360.png",
-      "sizes": "360x360"
+      "src": "http://cdn.tiye.me/logo/dev-switcher.png",
+      "sizes": "240x240"
     }
   ],
   "start_url": "index.html?host=192.168.1.180",
   "display": "standalone",
-  "orientation": "landscape",
+  "orientation": "any",
   "background_color": "#eeeeff",
   "theme_color": "#eeeeff"
 }

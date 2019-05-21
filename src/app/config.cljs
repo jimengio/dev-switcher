@@ -30,7 +30,7 @@
    {:port 8011,
     :ws-host "localhost",
     :title "Dev Switcher",
-    :icon "http://cdn.tiye.me/logo/jimeng-360x360.png",
+    :icon "http://cdn.tiye.me/logo/dev-switcher.png",
     :upload-folder "tiye.me:repo/jimengio/dev-switcher/",
     :server-folder nil,
     :theme "#eeeeff",
