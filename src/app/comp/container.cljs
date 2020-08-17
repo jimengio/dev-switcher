@@ -2,7 +2,7 @@
 (ns app.comp.container
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
-            [respo.core :refer [defcomp <> div span action-> cursor-> button]]
+            [respo.core :refer [defcomp <> div span button]]
             [respo.comp.inspect :refer [comp-inspect]]
             [respo.comp.space :refer [=<]]
             [app.comp.navigation :refer [comp-navigation]]
@@ -34,7 +34,7 @@
   (div
    {:style (merge ui/center {:cursor :pointer, :line-height "32px"})}
    (span
-    {:on-click (action-> :effect/connect nil)}
+    {:on-click (fn [e d!] (d! :effect/connect nil))}
     (<> "No connection..." {:font-family ui/font-fancy, :font-size 24}))
    (comp-md
     "This is a DevTool. [Find out more on GitHub.](https://github.com/jimengio/dev-switcher)"))))
@@ -75,7 +75,7 @@
       (comp-messages
        (get-in store [:session :messages])
        {}
-       (fn [info d! m!] (d! :session/remove-message info)))
+       (fn [info d!] (d! :session/remove-message info)))
       (when dev? (comp-reel (:reel-length store) {}))))))
 
 (def style-body {:padding "8px 16px"})
