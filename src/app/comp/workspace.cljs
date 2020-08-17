@@ -3,7 +3,7 @@
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
             [respo.comp.space :refer [=<]]
-            [respo.core :refer [defcomp <> action-> list-> span div button]]
+            [respo.core :refer [defcomp <> list-> span div button]]
             [app.config :as config]
             [clojure.set :refer [difference]]
             [app.schema :as schema])
@@ -11,19 +11,24 @@
 
 (defcomp
  comp-app
- (app-name title op)
+ (app-name title enabled?)
  (div
-  {:style {:display :inline-block,
-           :width 160,
-           :border (<< "1px solid ~(hsl 200 80 86)"),
-           :background-color (hsl 0 0 97),
-           :padding "4px 8px",
-           :margin 4,
-           :cursor :pointer},
-   :on-click (fn [e d! m!] (d! op app-name))}
+  {:style (merge
+           {:display :inline-block,
+            :width 160,
+            :border (<< "2px solid ~(hsl 200 80 90)"),
+            :background-color (hsl 0 0 97),
+            :padding "8px 8px",
+            :margin 4,
+            :cursor :pointer,
+            :font-size 16,
+            :line-height "24px",
+            :opacity 0.5}
+           (if enabled? {:opacity 1, :border (<< "2px solid ~(hsl 200 80 66)")})),
+   :on-click (fn [e d!] (d! (if enabled? :app/turn-off :app/turn-on) app-name))}
   (div {} (<> title))
   (div
-   {:style {:color (hsl 0 0 70), :font-family ui/font-fancy, :font-size 12}}
+   {:style {:color (hsl 0 0 80), :font-family ui/font-fancy, :font-size 14}}
    (<> app-name))))
 
 (defcomp
@@ -32,41 +37,34 @@
  (let [apps-order (map :id all-apps)
        titles-map (->> all-apps (map (fn [x] [(:id x) (:name x)])) (into {}))]
    (div
-    {:style (merge ui/flex ui/row {:padding 8, :overflow :auto})}
+    {:style (merge ui/flex ui/row {:padding 16, :overflow :auto})}
     (div
      {:style (merge ui/flex {:overflow :auto})}
      (div
       {}
-      (<> "Enabled")
-      (=< 16 nil)
       (button
        {:style ui/button,
         :inner-text "Enable all",
-        :on-click (fn [e d! m!] (d! :app/turn-on-all))}))
-     (=< nil 16)
-     (list->
-      {:style {}}
-      (->> enabled-apps
-           (sort-by (fn [app-name] (.indexOf apps-order app-name)))
-           (map
-            (fn [app-name]
-              [app-name (comp-app app-name (get titles-map app-name) :app/turn-off)])))))
-    (=< 24 nil)
-    (div
-     {:style (merge {:overflow :auto, :flex 2})}
-     (div
-      {:style {:overflow :auto}}
-      (<> "Disabled")
-      (=< 16 nil)
+        :on-click (fn [e d!] (d! :app/turn-on-all))})
+      (=< 8 nil)
       (button
        {:style ui/button,
         :inner-text "Disable all",
-        :on-click (fn [e d! m!] (d! :app/turn-off-all))}))
+        :on-click (fn [e d!] (d! :app/turn-off-all))})
+      (=< 16 nil)
+      (<>
+       (str (count enabled-apps) " apps enabled")
+       {:font-family ui/font-fancy, :font-size 16}))
      (=< nil 16)
      (list->
-      {:style {:overflow :auto}}
-      (->> (difference (set apps-order) enabled-apps)
+      {:style {}}
+      (->> all-apps
+           (map :id)
            (sort-by (fn [app-name] (.indexOf apps-order app-name)))
            (map
             (fn [app-name]
-              [app-name (comp-app app-name (get titles-map app-name) :app/turn-on)]))))))))
+              [app-name
+               (comp-app
+                app-name
+                (get titles-map app-name)
+                (contains? enabled-apps app-name))]))))))))

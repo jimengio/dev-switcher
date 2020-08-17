@@ -3,7 +3,7 @@
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
             [respo.comp.space :refer [=<]]
-            [respo.core :refer [defcomp <> action-> button span div]]
+            [respo.core :refer [defcomp <> button span div]]
             [app.config :as config]))
 
 (defcomp
@@ -19,7 +19,7 @@
             :border-bottom (str "1px solid " (hsl 0 0 0 0.1)),
             :font-family ui/font-fancy})}
   (div
-   {:on-click (action-> :router/change {:name :home}), :style {:cursor :pointer}}
+   {:on-click (fn [e d!] (d! :router/change {:name :home})), :style {:cursor :pointer}}
    (<> (:title config/site) nil))
   (button
    {:style (merge
@@ -29,4 +29,4 @@
                :color :white,
                :border-color (hsl 200 80 50)})),
     :inner-text "Save",
-    :on-click (fn [e d! m!] (d! :effect/save nil))})))
+    :on-click (fn [e d!] (d! :effect/save nil))})))
