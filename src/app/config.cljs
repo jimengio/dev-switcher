@@ -17,10 +17,11 @@
       false)))
 
 (defn get-cdn-info [cdn-key]
-  {:cdn-url (<< "http://cdn.tiye.me/~{cdn-key}/"), :cdn-folder (<< "tiye.me:cdn/~{cdn-key}")})
+  {:cdn-url (<< "https://fe.jimu.io/~{cdn-key}/"),
+   :cdn-folder (<< "fe.jimu.io:cdn/~{cdn-key}")})
 
 (def shared-info
-  {:release-ui "http://cdn.tiye.me/favored-fonts/main.css",
+  {:release-ui "https://fe.jimu.io/favored-fonts/main.css",
    :dev-ui "http://localhost:8100/main.css"})
 
 (def site
@@ -30,8 +31,8 @@
    {:port 8011,
     :ws-host "localhost",
     :title "Dev Switcher",
-    :icon "http://cdn.tiye.me/logo/dev-switcher.png",
-    :upload-folder "tiye.me:repo/jimengio/dev-switcher/",
+    :icon "https://fe.jimu.io/logo/dev-switcher.png",
+    :upload-folder "fe.jimu.io:repo/jimengio/dev-switcher/",
     :server-folder nil,
     :theme "#eeeeff",
     :storage-key "dev-switcher",
