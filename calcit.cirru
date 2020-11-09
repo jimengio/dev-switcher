@@ -2334,14 +2334,14 @@
                       |j $ {} (:type :expr) (:by |root) (:at 1546409724875) (:id |eAAL-1GlOU)
                         :data $ {}
                           |D $ {} (:type :leaf) (:by |root) (:at 1546409725936) (:text |<<) (:id |Sa4-c82Oft)
-                          |T $ {} (:type :leaf) (:by |root) (:at 1546409740088) (:text "|\"http://cdn.tiye.me/~{cdn-key}/") (:id |N5xC-IWW3A)
+                          |T $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1604894160369) (:text "|\"https://fe.jimu.io/~{cdn-key}/") (:id |N5xC-IWW3A)
                   |r $ {} (:type :expr) (:by |root) (:at 1546409723273) (:id |Pe5MBl7ZUm)
                     :data $ {}
                       |T $ {} (:type :leaf) (:by |root) (:at 1546409723273) (:text |:cdn-folder) (:id |pAlNFkj7pc)
                       |j $ {} (:type :expr) (:by |root) (:at 1546484357011) (:id |Mjln8iRNuS)
                         :data $ {}
                           |D $ {} (:type :leaf) (:by |root) (:at 1546484359129) (:text |<<) (:id |OfxmDt9Te)
-                          |T $ {} (:type :leaf) (:by |root) (:at 1546484358314) (:text "|\"tiye.me:cdn/~{cdn-key}") (:id |RzjVO-zzdi)
+                          |T $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1604893854895) (:text "|\"fe.jimu.io:cdn/~{cdn-key}") (:id |RzjVO-zzdi)
           |shared-info $ {} (:type :expr) (:by |root) (:at 1546409653333) (:id |dPf2CIrXdp)
             :data $ {}
               |T $ {} (:type :leaf) (:by |root) (:at 1546409654222) (:text |def) (:id |J-IeBB-jEW)
@@ -2352,11 +2352,11 @@
                   |j $ {} (:type :expr) (:by |root) (:at 1546409662364) (:id |F31nVv0Fzz)
                     :data $ {}
                       |T $ {} (:type :leaf) (:by |root) (:at 1546409662364) (:text |:release-ui) (:id |ADhfEd6fmb)
-                      |j $ {} (:type :leaf) (:by |root) (:at 1546409662364) (:text "|\"http://cdn.tiye.me/favored-fonts/main.css") (:id |YBkesaK4oC)
+                      |j $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1604894168097) (:text "|\"https://fe.jimu.io/favored-fonts/main.css") (:id |YBkesaK4oC)
                   |r $ {} (:type :expr) (:by |root) (:at 1546409669314) (:id |IfXJ3__Uhu)
                     :data $ {}
                       |T $ {} (:type :leaf) (:by |root) (:at 1546409669314) (:text |:dev-ui) (:id |WG_lcRWzAF)
-                      |j $ {} (:type :leaf) (:by |root) (:at 1546409669314) (:text "|\"http://localhost:8100/main.css") (:id |Bsq1yTfFZI)
+                      |j $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1604894170869) (:text "|\"http://localhost:8100/main.css") (:id |Bsq1yTfFZI)
           |site $ {} (:type :expr) (:id |ryy9lUWg0BW) (:by nil) (:at 1500541255553)
             :data $ {}
               |T $ {} (:type :leaf) (:id |Syx9g8-l0B-) (:text |def) (:by |root) (:at 1500541255553)
@@ -2383,7 +2383,7 @@
                       |yT $ {} (:type :expr) (:by |root) (:at 1527866712917) (:id |SyebDS1kgQ)
                         :data $ {}
                           |T $ {} (:type :leaf) (:by |root) (:at 1528009970172) (:text |:upload-folder) (:id |SyebDS1kgQleaf)
-                          |j $ {} (:type :leaf) (:by |root) (:at 1546415510095) (:text "|\"tiye.me:repo/jimengio/dev-switcher/") (:id |BymiPr1kgm)
+                          |j $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1604893890926) (:text "|\"fe.jimu.io:repo/jimengio/dev-switcher/") (:id |BymiPr1kgm)
                       |yj $ {} (:type :expr) (:by |root) (:at 1527866893140) (:id |BJxHfLkygX)
                         :data $ {}
                           |T $ {} (:type :leaf) (:by |root) (:at 1528010247576) (:text |:server-folder) (:id |BJxHfLkygXleaf)
@@ -2403,7 +2403,7 @@
                       |u $ {} (:type :expr) (:by |root) (:at 1527867511986) (:id |r1gxKOykeQ)
                         :data $ {}
                           |T $ {} (:type :leaf) (:by |root) (:at 1527867512819) (:text |:icon) (:id |r1gxKOykeQleaf)
-                          |j $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1558432569237) (:text "|\"http://cdn.tiye.me/logo/dev-switcher.png") (:id |B1SY_yJx7)
+                          |j $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1604894156050) (:text "|\"https://fe.jimu.io/logo/dev-switcher.png") (:id |B1SY_yJx7)
                       |yv $ {} (:type :expr) (:by |B1y7Rc-Zz) (:at 1544855275779) (:id |p3x2NvQE8A)
                         :data $ {}
                           |T $ {} (:type :leaf) (:by |B1y7Rc-Zz) (:at 1544855275779) (:text |:storage-key) (:id |uZPBtv98eu)
@@ -3213,75 +3213,6 @@
                   |j $ {} (:type :leaf) (:id |Byz0Q58leRrb) (:text |js/document) (:by |root) (:at 1500541010211)
                   |r $ {} (:type :leaf) (:id |BkmCm9LggCrW) (:text ||.app) (:by |root) (:at 1500541010211)
         :proc $ {} (:type :expr) (:id |S1dWm9UggRBZ) (:by nil) (:at 1500541010211) (:data $ {})
-      |app.upload $ {}
-        :ns $ {} (:type :expr) (:by |root) (:at 1545586988796) (:id |u5np5xcKqH)
-          :data $ {}
-            |T $ {} (:type :leaf) (:by |root) (:at 1545586988796) (:text |ns) (:id |81wDU02o94)
-            |j $ {} (:type :leaf) (:by |root) (:at 1545586988796) (:text |app.upload) (:id |sd86DL5l-W)
-            |r $ {} (:type :expr) (:by |root) (:at 1545587028972) (:id |yC9ey0FgqQ)
-              :data $ {}
-                |T $ {} (:type :leaf) (:by |root) (:at 1545587029699) (:text |:require) (:id |eal_vbJs9l)
-                |j $ {} (:type :expr) (:by |root) (:at 1545587029983) (:id |8R7u8xLIQu)
-                  :data $ {}
-                    |T $ {} (:type :leaf) (:by |root) (:at 1545587030415) (:text |[]) (:id |zevZrjWuB6)
-                    |j $ {} (:type :leaf) (:by |root) (:at 1545587034188) (:text "|\"child_process") (:id |pMOU2oyGC)
-                    |r $ {} (:type :leaf) (:by |root) (:at 1545587035442) (:text |:as) (:id |s8MdvkWCZQ)
-                    |v $ {} (:type :leaf) (:by |root) (:at 1545587036284) (:text |cp) (:id |g6MUs_ikT)
-                |r $ {} (:type :expr) (:by |root) (:at 1545587037024) (:id |tl8yyP-1Uy)
-                  :data $ {}
-                    |T $ {} (:type :leaf) (:by |root) (:at 1545587037383) (:text |[]) (:id |tl8yyP-1Uyleaf)
-                    |j $ {} (:type :leaf) (:by |root) (:at 1545587039630) (:text |app.config) (:id |0QuZjBZqfg)
-                    |r $ {} (:type :leaf) (:by |root) (:at 1545587041096) (:text |:as) (:id |c0nsFvGjsG)
-                    |v $ {} (:type :leaf) (:by |root) (:at 1545587042262) (:text |config) (:id |0tseYDej5x)
-                |v $ {} (:type :expr) (:by |root) (:at 1545669797145) (:id |pGlGvk_P6l)
-                  :data $ {}
-                    |T $ {} (:type :leaf) (:by |root) (:at 1545669798412) (:text |[]) (:id |pGlGvk_P6lleaf)
-                    |j $ {} (:type :leaf) (:by |root) (:at 1545669806108) (:text |cumulo-util.file) (:id |JPLQPdnkE)
-                    |r $ {} (:type :leaf) (:by |root) (:at 1545669806842) (:text |:refer) (:id |8R1QS3X5rj)
-                    |v $ {} (:type :expr) (:by |root) (:at 1545669807031) (:id |fISCMiVHPn)
-                      :data $ {}
-                        |T $ {} (:type :leaf) (:by |root) (:at 1545669807198) (:text |[]) (:id |jhdClevafH)
-                        |j $ {} (:type :leaf) (:by |root) (:at 1545669809623) (:text |sh!) (:id |Q_Glv_0PXw)
-            |v $ {} (:type :expr) (:by |root) (:at 1545587049384) (:id |iUnKqK07Q7)
-              :data $ {}
-                |T $ {} (:type :leaf) (:by |root) (:at 1545587049384) (:text |:require-macros) (:id |gVDnzCwu6C)
-                |j $ {} (:type :expr) (:by |root) (:at 1545587049384) (:id |NjDxITcbFs)
-                  :data $ {}
-                    |T $ {} (:type :leaf) (:by |root) (:at 1545587049384) (:text |[]) (:id |Sd-2LhnD9B)
-                    |j $ {} (:type :leaf) (:by |root) (:at 1545587049384) (:text |clojure.core.strint) (:id |zTS7Lmn1mz)
-                    |r $ {} (:type :leaf) (:by |root) (:at 1545587049384) (:text |:refer) (:id |jofETsxEs7)
-                    |v $ {} (:type :expr) (:by |root) (:at 1545587049384) (:id |MiKvE7C4Yp)
-                      :data $ {}
-                        |T $ {} (:type :leaf) (:by |root) (:at 1545587049384) (:text |[]) (:id |rGawzo4SbW)
-                        |j $ {} (:type :leaf) (:by |root) (:at 1545587049384) (:text |<<) (:id |x6Uov58-YS)
-        :defs $ {}
-          |main! $ {} (:type :expr) (:by |root) (:at 1545587000478) (:id |a2xVx8vLxm)
-            :data $ {}
-              |T $ {} (:type :leaf) (:by |root) (:at 1545587000478) (:text |defn) (:id |idjHN3Yw_n)
-              |j $ {} (:type :leaf) (:by |root) (:at 1545587000478) (:text |main!) (:id |spOrH1fihu)
-              |r $ {} (:type :expr) (:by |root) (:at 1545587000478) (:id |2f6Ktzh7B0) (:data $ {})
-              |v $ {} (:type :expr) (:by |root) (:at 1545587006695) (:id |SH-TT4CtB)
-                :data $ {}
-                  |T $ {} (:type :leaf) (:by |root) (:at 1545587009337) (:text |sh!) (:id |SH-TT4CtBleaf)
-                  |j $ {} (:type :expr) (:by |root) (:at 1545587104489) (:id |YVQT2DZ5c3)
-                    :data $ {}
-                      |D $ {} (:type :leaf) (:by |root) (:at 1545587105186) (:text |<<) (:id |XQXXpBIcZ)
-                      |T $ {} (:type :leaf) (:by |root) (:at 1545587065385) (:text "|\"rsync -avr --progress dist/* ~(:cdn-folder config/site)") (:id |ZQqR8PESl)
-              |x $ {} (:type :expr) (:by |root) (:at 1545587066172) (:id |xWhScAty2i)
-                :data $ {}
-                  |T $ {} (:type :leaf) (:by |root) (:at 1545587067545) (:text |sh!) (:id |xWhScAty2ileaf)
-                  |j $ {} (:type :expr) (:by |root) (:at 1545587106478) (:id |sIIuwIg_gW)
-                    :data $ {}
-                      |D $ {} (:type :leaf) (:by |root) (:at 1545587107276) (:text |<<) (:id |dgY9OPc2w)
-                      |T $ {} (:type :leaf) (:by |root) (:at 1545587078321) (:text "|\"rsync -avr --progress dist/{index.html,manifest.json} ~(:upload-folder config/site)") (:id |Lg55y7KQy_)
-              |y $ {} (:type :expr) (:by |root) (:at 1545587082927) (:id |HrwU6-CmsL)
-                :data $ {}
-                  |T $ {} (:type :leaf) (:by |root) (:at 1545587083813) (:text |sh!) (:id |HrwU6-CmsLleaf)
-                  |j $ {} (:type :expr) (:by |root) (:at 1545587108203) (:id |19-yTl7pcb)
-                    :data $ {}
-                      |D $ {} (:type :leaf) (:by |root) (:at 1545587108878) (:text |<<) (:id |AiUPCTzqv5)
-                      |T $ {} (:type :leaf) (:by |root) (:at 1545587093666) (:text "|\"rsync -avr --progress dist/{server.js,package.json} ~(:server-folder config/site)") (:id |z-V2aQrWj5)
-        :proc $ {} (:type :expr) (:by |root) (:at 1545586988796) (:id |IHaW2qSrJg) (:data $ {})
       |app.comp.navigation $ {}
         :ns $ {} (:type :expr) (:id |BkUXGcUegABW) (:by nil) (:at 1500541010211)
           :data $ {}
